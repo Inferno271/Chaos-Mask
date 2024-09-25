@@ -72,7 +72,7 @@
     background-repeat: no-repeat;
     transition: width 0.3s ease;
     overflow-x: hidden;
-    z-index: 30;
+    z-index: 99999;
   }
 
   #sidebar:hover {

@@ -64,7 +64,7 @@ body, html {
     width: 100%;
     max-width: 1200px; /* Увеличиваем максимальную ширину контейнера */
     height: 95vh; /* Устанавливаем высоту в процентах от высоты viewport */
-    margin: 0 auto;
+    margin: 30px auto 0 145px;
     overflow: hidden; /* Скрываем части масок, выходящие за пределы контейнера */
 }
 .half-mask {
@@ -186,6 +186,7 @@ h1 {
 }
 
 .home-page .mask-container {
-    position: relative;
+
     z-index: 11;
 }
+

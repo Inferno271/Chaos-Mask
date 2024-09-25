@@ -24,7 +24,7 @@
 
     @include('components.sidebar')
     <x-scroll-to-top />
-
+    @include('components.footer')
     @yield('additional_content')
 
     @yield('scripts')
