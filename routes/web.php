@@ -14,8 +14,9 @@ use App\Http\Controllers\AdminController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Каталог
-Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
+Route::get('/catalog', [CatalogController::class, 'showCategory'])->name('catalog')->defaults('category', 'facial');
 Route::get('/catalog/{category}', [CatalogController::class, 'showCategory'])->name('catalog.category');
+Route::get('/catalog/search', [CatalogController::class, 'search'])->name('catalog.search');
 
 // О нас
 Route::get('/about', [AboutController::class, 'index'])->name('about');

@@ -1,0 +1,254 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.catalog-container {
+    width: 100%;
+    padding-left: 90px; /* Учитываем ширину сайдбара */
+    padding-top: 20px; /* Добавляем отступ сверху */
+    position: relative;
+    z-index: 10; /* Добавляем z-index выше, чем у градиентов */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем содержимое по горизонтали */
+}
+
+.catalog-header {
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.catalog-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.search-bar input {
+    background-color: #444;
+    border: none;
+    color: #fff;
+    padding: 8px 15px;
+    width: 250px;
+    border-radius: 3px;
+}
+
+.catalog-nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center; /* Центрируем элементы по горизонтали */
+}
+
+.catalog-nav li {
+    margin: 0 30px; /* Увеличиваем отступы между элементами */
+}
+
+.catalog-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px; /* Увеличиваем размер шрифта */
+    letter-spacing: 1px; /* Добавляем небольшой интервал между буквами */
+}
+
+.catalog-nav li.active a {
+    color: #ffffff;
+}
+
+.filters-dropdown button {
+    background-color: #555;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.catalog-title {
+    font-size: 36px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.catalog-description {
+    background-image: url('/images/Frame 24.png'); /* Путь к изображению */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    color: #fff;
+    position: relative;
+}
+
+.catalog-description::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный оверлей */
+    border-radius: 5px;
+}
+
+.catalog-description p {
+    position: relative;
+    z-index: 1; /* Размещаем текст поверх оверлея */
+}
+
+.mask-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.mask-card {
+    background-color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.mask-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.mask-info {
+    padding: 15px;
+}
+
+.mask-name {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.mask-price {
+    font-weight: bold;
+    color: #f8ab37;
+}
+
+.add-to-cart-btn {
+    background-color: #45454799;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #454545;
+}
+
+.catalog-nav {
+    flex-grow: 1; /* Позволяет навигации занять все доступное пространство */
+    text-align: center; /* Центрирует текст внутри навигации */
+}
+
+.catalog-nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.catalog-nav li {
+    margin: 0 15px;
+}
+
+.catalog-nav a {
+    text-decoration: none;
+    color: #cacaca;
+    font-weight: bold;
+}
+
+.catalog-nav a:hover {
+    color: #ffffff;
+}
+
+/* Стили для кнопки сортировки */
+.sort-button {
+    position: relative;
+}
+
+#sortButton {
+    background-color: #555;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#sortButton:hover {
+    background-color: #666;
+}
+
+/* Стили для выпадающего меню сортировки */
+.sort-dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #444;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 200px;
+}
+
+.sort-dropdown a {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.sort-dropdown a:hover {
+    background-color: #555;
+}
+
+/* Обновленные стили для catalog-header-content */
+.catalog-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.search-bar {
+    flex: 0 0 auto;
+}
+
+.catalog-nav {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.sort-button {
+    flex: 0 0 auto;
+}
