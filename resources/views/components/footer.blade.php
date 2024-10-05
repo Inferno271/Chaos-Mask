@@ -10,7 +10,7 @@
                     <li><a href="{{ route('home') }}">Home page</a></li>
                     <li><a href="{{ route('catalog') }}">Catalog</a></li>
                     <li><a href="{{ route('about') }}">About us</a></li>
-                    <li><a href="{{ route('blog') }}">Blog</a></li>
+                    <li><a href="{{ route('blog.index') }}">Blog</a></li>
                     <li><a href="{{ route('contact') }}">Contacts</a></li>
                 </ul>
             </div>
@@ -20,7 +20,7 @@
                     <li><a href="{{ route('home') }}">Главная страница</a></li>
                     <li><a href="{{ route('catalog') }}">Каталог</a></li>
                     <li><a href="{{ route('about') }}">О нас</a></li>
-                    <li><a href="{{ route('blog') }}">Блог</a></li>
+                    <li><a href="   {{ route('blog.index') }}">Блог</a></li>
                     <li><a href="{{ route('contact') }}">Контакты</a></li>
                 </ul>
             </div>

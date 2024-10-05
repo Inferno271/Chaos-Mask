@@ -22,7 +22,8 @@ Route::get('/catalog/search', [CatalogController::class, 'search'])->name('catal
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 // Блог
-Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 // Контакты
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');

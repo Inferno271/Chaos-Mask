@@ -3,12 +3,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogPost;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
     public function index()
     {
-        return view('blog'); // Возвращает представление блога
+        $posts = BlogPost::where('is_published', true)
+                         ->orderBy('published_at', 'desc')
+                         ->paginate(10);
+        return view('blog.index', compact('posts'));
+    }
+
+    public function show($slug)
+    {
+        $post = BlogPost::where('slug', $slug)->firstOrFail();
+        return view('blog.show', compact('post'));
     }
 }

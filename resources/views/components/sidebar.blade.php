@@ -9,7 +9,7 @@
       <span class="brand-text">CHAOS MASK</span>
     </li>
     <li class="sidebar-item flexbox-left">
-      <a href="{{ route('login') }}" class="sidebar-item-inner flexbox-left login-item">
+      <a href="#" class="sidebar-item-inner flexbox-left login-item" id="loginBtn">
         <div class="sidebar-item-inner-icon-wrapper flexbox-center">
           <i class="fas fa-user"></i>
         </div>
@@ -41,7 +41,7 @@
       </a>
     </li>
     <li class="sidebar-item flexbox-left">
-      <a href="{{ route('blog') }}" class="sidebar-item-inner flexbox-left">
+      <a href="{{ route('blog.index') }}" class="sidebar-item-inner flexbox-left">
         <div class="sidebar-item-inner-icon-wrapper flexbox-center">
           <i class="fas fa-blog"></i>
         </div>
@@ -58,6 +58,8 @@
     </li>
   </ul>
 </nav>
+
+
 
 <style>
   #sidebar {

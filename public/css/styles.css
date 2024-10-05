@@ -64,7 +64,7 @@ body, html {
     width: 100%;
     max-width: 1200px; /* Увеличиваем максимальную ширину контейнера */
     height: 95vh; /* Устанавливаем высоту в процентах от высоты viewport */
-    margin: 30px auto 0 145px;
+    margin: 30px auto 0 175px;
     overflow: hidden; /* Скрываем части масок, выходящие за пределы контейнера */
 }
 .half-mask {
@@ -90,6 +90,7 @@ body, html {
     transform: translateX(-50%);
     z-index: 25; /* Размещаем поверх градиентов, но под сайдбаром */
     text-align: center;
+    margin-left: 30px;
 }
 .main-logo {
     width: 80px; /* Уменьшаем размер логотипа */
@@ -190,3 +191,9 @@ h1 {
     z-index: 11;
 }
 
+.main-container {
+    position: relative;
+    z-index: 10;
+
+
+}

@@ -6,7 +6,7 @@
     <title>Chaos Mask</title>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+    <link rel="stylesheet" href="{{ asset('css/modal.css') }}">
 </head>
 
 <body class="home-page">
@@ -40,7 +40,24 @@
 
         @include('components.sidebar')
 
-        <div id="isolated-text" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: flex-start; padding-top: 15%; z-index: 10000; pointer-events: none;">
+        <!-- Модальное окно для авторизации -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                @include('auth.login')
+                <p>Нет аккаунта? <a href="#" id="showRegisterBtn">Зарегистрироваться</a></p>
+            </div>
+        </div>
+
+        <!-- Модальное окно для регистрации -->
+        <div id="registerModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                @include('auth.register')
+            </div>
+        </div>
+
+        <div id="isolated-text" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: flex-start; padding-top: 15%; z-index: 4000; pointer-events: none; margin-left: 30px;">
             <div style="max-width: 400px; text-align: center;">
                 <h2 style="color: #fff !important; font-size: 32px !important; margin-bottom: 15px !important; text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;">Добро пожаловать в мир Chaos Mask</h2>
                 <p style="color: #fff !important; font-size: 16px !important; line-height: 1.4 !important; text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;">Откройте для себя уникальные маски ручной работы, созданные для самовыражения и воплощения ваших самых смелых идей.</p>
@@ -49,5 +66,6 @@
     </div>  
     @include('components.footer')
 
+    <script src="{{ asset('js/modal.js') }}"></script>
 </body>
 </html>
