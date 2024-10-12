@@ -9,13 +9,36 @@
       <span class="brand-text">CHAOS MASK</span>
     </li>
     <li class="sidebar-item flexbox-left">
-      <a href="#" class="sidebar-item-inner flexbox-left login-item" id="loginBtn">
+      @auth
+        <a href="{{ route('cart') }}" class="sidebar-item-inner flexbox-left login-item">
+          <div class="sidebar-item-inner-icon-wrapper flexbox-center">
+            <i class="fas fa-user"></i>
+          </div>
+          <span class="link-text">{{ Auth::user()->name }}</span>
+          <span class="cart-count">{{ Auth::user()->cartItems->sum('quantity') }}</span>
+        </a>
+      @else
+        <a href="#" class="sidebar-item-inner flexbox-left login-item" id="loginBtn">
+          <div class="sidebar-item-inner-icon-wrapper flexbox-center">
+            <i class="fas fa-user"></i>
+          </div>
+          <span class="link-text">LOG IN</span>
+        </a>
+      @endauth
+    </li>
+    @auth
+    <li class="sidebar-item flexbox-left">
+      <a href="{{ route('logout') }}" class="sidebar-item-inner flexbox-left logout-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
         <div class="sidebar-item-inner-icon-wrapper flexbox-center">
-          <i class="fas fa-user"></i>
+          <i class="fas fa-sign-out-alt"></i>
         </div>
-        <span class="link-text">LOG IN</span>
+        <span class="link-text">ВЫЙТИ</span>
       </a>
     </li>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      @csrf
+    </form>
+    @endauth
     <li class="sidebar-item flexbox-left">
       <a href="{{ route('home') }}" class="sidebar-item-inner flexbox-left">
         <div class="sidebar-item-inner-icon-wrapper flexbox-center">
@@ -95,7 +118,7 @@
   .sidebar-item-inner {
     display: flex;
     align-items: center;
-    padding: 20px 15px;
+    padding: 15px 15px;
     color: #f1f1f1;
     text-decoration: none;
     transition: 0.3s;
@@ -204,6 +227,29 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.3);
     z-index: -1;
+  }
+
+  .logout-item {
+    background-color: rgba(255, 0, 0, 0.1);
+  }
+
+  .logout-item:hover {
+    background-color: rgba(255, 0, 0, 0.2);
+  }
+
+  .cart-count {
+    background-color: #f8ab37;
+    color: #000;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  #sidebar:hover .cart-count {
+    right: 20px;
   }
 </style>
 

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var loginBtn = document.getElementById('loginBtn');
     var showRegisterBtn = document.getElementById('showRegisterBtn');
     var closeBtns = document.getElementsByClassName('close');
+    const loginForm = document.getElementById('loginForm');
 
     function openModal(modal) {
         modal.style.display = 'block';
@@ -40,5 +41,40 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.target.classList.contains('modal')) {
             closeModal(event.target);
         }
+    }
+
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json',
+                },
+                credentials: 'same-origin'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.redirect) {
+                    window.location.href = data.redirect;
+                } else {
+                    throw new Error('Unexpected response from server');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Произошла ошибка при входе. Пожалуйста, попробуйте еще раз.');
+            });
+        });
     }
 });

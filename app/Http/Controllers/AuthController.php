@@ -15,20 +15,19 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        // Валидация входных данных
         $credentials = $request->only('email', 'password');
-
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('home');
+            $request->session()->regenerate();
+            $redirectRoute = Auth::user()->is_admin ? 'admin.dashboard' : 'home';
+            return response()->json(['redirect' => route($redirectRoute)]);
         }
-
-        return redirect('login')->withErrors(['email' => 'Invalid credentials']);
+        return response()->json(['error' => 'Неверные учетные данные'], 422);
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirect('home');
+        return redirect()->route('home');
     }
 
     public function showRegistrationForm()
@@ -53,7 +52,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect('home');
+        return response()->json(['redirect' => route('home')]);
     }
 
     public function account()

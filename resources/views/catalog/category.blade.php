@@ -30,7 +30,9 @@
 
         <div class="mask-grid">
             @forelse($masks as $mask)
-                @include('catalog.partials.mask-card', ['mask' => $mask])
+                <div class="mask-item">
+                    @include('catalog.partials.mask-card', ['mask' => $mask])
+                </div>
             @empty
                 <p>В этой категории пока нет масок.</p>
             @endforelse

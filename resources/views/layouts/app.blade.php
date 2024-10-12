@@ -11,6 +11,7 @@
     @stack('styles')
     <link rel="stylesheet" href="{{ asset('css/blog.css') }}">
     <link rel="stylesheet" href="{{ asset('css/modal.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 
@@ -33,7 +34,6 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             @include('auth.login')
-            <p>Нет аккаунта? <a href="#" id="showRegisterBtn">Зарегистрироваться</a></p>
         </div>
     </div>
 

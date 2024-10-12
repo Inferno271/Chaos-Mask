@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/modal.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body class="home-page">
@@ -45,7 +46,6 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 @include('auth.login')
-                <p>Нет аккаунта? <a href="#" id="showRegisterBtn">Зарегистрироваться</a></p>
             </div>
         </div>
 
@@ -67,5 +67,27 @@
     @include('components.footer')
 
     <script src="{{ asset('js/modal.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Открытие модального окна для входа
+            document.querySelector('.login-btn').addEventListener('click', function() {
+                document.getElementById('loginModal').style.display = 'block';
+            });
+
+            // Закрытие модальных окон при клике на крестик или вне окна
+            window.onclick = function(event) {
+                if (event.target.className === 'modal' || event.target.classList.contains('close')) {
+                    document.getElementById('loginModal').style.display = 'none';
+                    document.getElementById('registerModal').style.display = 'none';
+                }
+            };
+
+            // Переключение между окнами входа и регистрации
+            document.getElementById('showRegisterBtn').addEventListener('click', function() {
+                document.getElementById('loginModal').style.display = 'none';
+                document.getElementById('registerModal').style.display = 'block';
+            });
+        });
+    </script>
 </body>
 </html>

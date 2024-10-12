@@ -10,15 +10,12 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = BlogPost::where('is_published', true)
-                         ->orderBy('published_at', 'desc')
-                         ->paginate(10);
+        $posts = BlogPost::with('user')->latest()->simplePaginate(3);
         return view('blog.index', compact('posts'));
     }
 
-    public function show($slug)
+    public function show(BlogPost $post)
     {
-        $post = BlogPost::where('slug', $slug)->firstOrFail();
         return view('blog.show', compact('post'));
     }
 }

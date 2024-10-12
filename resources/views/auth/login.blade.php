@@ -1,13 +1,8 @@
-<h2>Авторизация</h2>
-<form action="{{ route('login') }}" method="POST">
+<h2>Вход</h2>
+<form id="loginForm" action="{{ route('login') }}" method="POST">
     @csrf
-    <div>
-        <label for="login-email">Email:</label>
-        <input type="email" id="login-email" name="email" required autocomplete="email">
-    </div>
-    <div>
-        <label for="login-password">Пароль:</label>
-        <input type="password" id="login-password" name="password" required autocomplete="current-password">
-    </div>
+    <input type="email" name="email" required placeholder="Email">
+    <input type="password" name="password" required placeholder="Пароль">
     <button type="submit">Войти</button>
 </form>
+<p>Нет аккаунта? <a href="#" id="showRegisterBtn">Зарегистрироваться</a></p>

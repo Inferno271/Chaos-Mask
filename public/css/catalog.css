@@ -91,6 +91,8 @@ body {
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 30px;
+    margin-left: 120px;
+    margin-right: 200px;
     color: #fff;
     position: relative;
 }
@@ -109,23 +111,32 @@ body {
 .catalog-description p {
     position: relative;
     z-index: 1; /* Размещаем текст поверх оверлея */
+    margin-left: 30px;
+    margin-right: 20px;
 }
 
 .mask-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    max-width: 250%;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    margin-left: -80px;
+    margin-right: 0;
+    position: relative;
 }
 
 .mask-card {
-    background-color: #333;
-    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
     overflow: hidden;
+    min-width: 350px;
+    min-height: 370px;
 }
 
 .mask-image {
     width: 100%;
-    height: 200px;
+    height: 270px;
     object-fit: cover;
 }
 
@@ -134,27 +145,35 @@ body {
 }
 
 .mask-name {
-    font-size: 18px;
+    font-size: 23px;
+    margin-top: 0;
     margin-bottom: 5px;
+    color: #fff;
+    text-align: center;
 }
 
 .mask-price {
+    font-size: 25px;
+    text-align: center;
     font-weight: bold;
     color: #f8ab37;
 }
 
 .add-to-cart-btn {
-    background-color: #45454799;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
     border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
+    padding: 10px 15px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 60px;
 }
 
 .add-to-cart-btn:hover {
-    background-color: #454545;
+    background-color: #6a6a6a;
 }
 
 .catalog-nav {
@@ -251,4 +270,11 @@ body {
 
 .sort-button {
     flex: 0 0 auto;
+}
+
+.mask-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
